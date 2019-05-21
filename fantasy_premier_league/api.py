@@ -29,7 +29,14 @@ def get_league(league_id, max_players=50, game='FPL'):
         response = utilities.get_request(
             utilities.get_url('LEAGUE_CLASSIC_STANDINGS_URL', game, league_id=league_id, page=page))
         league = LeagueStandings.LeagueStandings(response)
-        team_ids += league.get_team_ids()
-        logging.info('Page {}/{}'.format(page, max_pages))
+        league_team_ids = league.get_team_ids()
+
+        team_ids += league_team_ids
+
+        if len(league_team_ids) < PAGE_SIZE:
+            logging.info('No more teams in the league')
+            break
+        else:
+            logging.info('Page {}/{}'.format(page, max_pages))
 
     return team_ids[:max_players]
