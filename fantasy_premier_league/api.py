@@ -1,8 +1,11 @@
+from math import ceil
+import logging
+
 from . import utilities
 from models import Player, LeagueStandings
-from math import ceil
 
 PAGE_SIZE = 50.0
+logging.getLogger().setLevel(logging.INFO)
 
 
 def get_players(game='FPL'):
@@ -27,5 +30,6 @@ def get_league(league_id, max_players=50, game='FPL'):
             utilities.get_url('LEAGUE_CLASSIC_STANDINGS_URL', game, league_id=league_id, page=page))
         league = LeagueStandings.LeagueStandings(response)
         team_ids += league.get_team_ids()
+        logging.info('Page {}/{}'.format(page, max_pages))
 
     return team_ids[:max_players]
