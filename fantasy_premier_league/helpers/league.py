@@ -2,7 +2,7 @@ from math import ceil
 import logging
 
 from .. import utilities
-from .models import LeagueStandings
+from .models import League
 
 logging.getLogger().setLevel(logging.INFO)
 
@@ -17,7 +17,7 @@ def get_league_team_ids(league_id, max_players, game):
     for page in range(1, 1 + max_pages):
         response = utilities.get_request(
             utilities.get_url('LEAGUE_CLASSIC_STANDINGS_URL', game, league_id=league_id, page=page))
-        league = LeagueStandings.LeagueStandings(response)
+        league = League.LeagueStandings(response)
         league_team_ids = league.get_team_ids()
 
         team_ids += league_team_ids

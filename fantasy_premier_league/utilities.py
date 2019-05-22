@@ -10,7 +10,7 @@ user_dir = os.path.expanduser("~") + "/.fpl"
 
 
 def get_url(target, game='FPL', **kwargs):
-    target_string = str(urls['DEFAULT'][target]).format(league_id=kwargs['league_id'], page=kwargs['page'])
+    target_string = str(urls['DEFAULT'][target]).format(**kwargs)
     return '{}{}'.format(urls['DEFAULT'][game], target_string)
 
 

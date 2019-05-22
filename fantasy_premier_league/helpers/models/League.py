@@ -1,6 +1,3 @@
-from .LeagueEntry import LeagueEntry
-
-
 class LeagueStandings(object):
     def __init__(self, league):
         self.name = league['league']['name']
@@ -12,3 +9,8 @@ class LeagueStandings(object):
 
     def get_team_ids(self):
         return [team.id for team in self.teams]
+
+
+class LeagueEntry(object):
+    def __init__(self, entry):
+        self.id = entry['id']
