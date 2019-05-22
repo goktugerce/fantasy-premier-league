@@ -40,6 +40,9 @@ def read_file(file_path):
     """Read content from file path"""
     full_file_path = os.path.join(user_dir, file_path)
 
-    with open(full_file_path) as infile:
-        content = json.load(infile)
-        return content
+    try:
+        with open(full_file_path) as infile:
+            content = json.load(infile)
+            return content
+    except OSError:
+        sys.exit("File path is not found.")
