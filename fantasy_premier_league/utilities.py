@@ -2,6 +2,7 @@ import configparser
 import json
 import os
 import requests
+import shutil
 import sys
 
 urls = configparser.ConfigParser()
@@ -51,3 +52,14 @@ def read_file(file_path):
             return content
     except OSError:
         sys.exit("File path is not found.")
+
+
+# noinspection PyBroadException
+def clear_directory():
+    """Clear downloaded files in user directory."""
+    try:
+        shutil.rmtree(user_dir)
+    except FileNotFoundError:
+        pass
+
+    os.makedirs(user_dir)
