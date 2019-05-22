@@ -2,7 +2,7 @@ from math import ceil
 import logging
 
 from . import utilities
-from models import Player, LeagueStandings
+from .models import Player, LeagueStandings
 
 PAGE_SIZE = 50.0
 logging.getLogger().setLevel(logging.INFO)
