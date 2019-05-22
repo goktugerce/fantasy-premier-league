@@ -28,12 +28,12 @@ def get_league_team_ids(league_id, max_players, game):
         else:
             logging.info('Page {}/{}'.format(page, max_pages))
 
-    utilities.save_file(team_ids, 'league/{}/team_ids.json'.format(league_id))
+    utilities.save_file(team_ids, '{}/league/{}/team_ids.json'.format(game, league_id))
     return team_ids
 
 
 def read_team_ids(league_id, max_players, game):
-    team_ids = utilities.read_file('league/{}/team_ids.json'.format(league_id))
+    team_ids = utilities.read_file('{}/league/{}/team_ids.json'.format(game, league_id))
 
     if len(team_ids) < max_players:
         team_ids = get_league_team_ids(league_id, max_players, game)

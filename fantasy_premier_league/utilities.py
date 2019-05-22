@@ -19,8 +19,8 @@ def get_request(url):
     response = requests.get(url)
     try:
         return response.json()
-    except Exception:
-        sys.exit('Game is being updated.')
+    except Exception as e:
+        sys.exit(e.message)
 
 
 def save_file(content, file_path):
@@ -32,6 +32,11 @@ def save_file(content, file_path):
         os.makedirs(full_directory_path, exist_ok=True)
 
     full_file_path = os.path.join(user_dir, file_path)
+
+    # If instance is string, convert it to JSON so it does not escape quotes while dumping
+    if isinstance(content, str):
+        content = json.loads(content)
+
     with open(full_file_path, 'w') as outfile:
         json.dump(content, outfile, ensure_ascii=False)
 
