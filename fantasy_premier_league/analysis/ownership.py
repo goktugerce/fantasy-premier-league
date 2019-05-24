@@ -2,28 +2,25 @@ from collections import defaultdict
 from . import helpers
 
 
-def get_ownership_stats(teams, players, percentage=True, with_team=True):
+def get_ownership_stats(teams, players, effective=False, percentage=True, with_team=True, return_ids=False):
     """Find captaincy stats for players"""
-    ownership_by_id = count_by_ids(teams)
+    ownership_by_id = count_by_ids(teams, effective)
     ownership_by_name = helpers.map_names(ownership_by_id, players, with_team)
 
     if percentage:
         total_teams = len(teams)
+        ownership_by_id = helpers.convert_to_percentage(ownership_by_id, total_teams)
         ownership_by_name = helpers.convert_to_percentage(ownership_by_name, total_teams)
+
+    if return_ids:
+        return helpers.sort_by_value(ownership_by_id)
 
     return helpers.sort_by_value(ownership_by_name)
 
 
-def get_effective_ownership_stats(teams, players, percentage=True, with_team=True):
+def get_effective_ownership_stats(teams, players, percentage=True, with_team=True, return_ids=False):
     """Get effective ownership for players, counting captains and chips"""
-    ownership_by_id = count_by_ids(teams, effective=True)
-    ownership_by_name = helpers.map_names(ownership_by_id, players, with_team)
-
-    if percentage:
-        total_teams = len(teams)
-        ownership_by_name = helpers.convert_to_percentage(ownership_by_name, total_teams)
-
-    return helpers.sort_by_value(ownership_by_name)
+    return get_ownership_stats(teams, players, True, percentage, with_team, return_ids)
 
 
 def count_by_ids(teams, effective=False):
