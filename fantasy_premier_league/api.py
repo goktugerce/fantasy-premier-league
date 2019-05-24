@@ -3,7 +3,7 @@ from .helpers import player, league, team
 
 def get_players(game='FPL'):
     """Return all players in the game, sorted by ownership"""
-    players = player.get_players(game)
+    players = player.download_players(game)
     return players
 
 
