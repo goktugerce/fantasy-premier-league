@@ -51,7 +51,7 @@ def read_file(file_path):
             content = json.load(infile)
             return content
     except OSError:
-        sys.exit("File path is not found.")
+        return None
 
 
 # noinspection PyBroadException

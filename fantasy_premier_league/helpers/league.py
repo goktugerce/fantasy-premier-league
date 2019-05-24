@@ -33,9 +33,10 @@ def get_league_team_ids(league_id, max_players, game):
 
 
 def read_team_ids(league_id, max_players, game):
+    """Read team ids from the local storage"""
     team_ids = utilities.read_file('{}/league/{}/team_ids.json'.format(game, league_id))
 
-    if len(team_ids) < max_players:
+    if team_ids is None or len(team_ids) < max_players:
         team_ids = get_league_team_ids(league_id, max_players, game)
 
     return team_ids[:max_players]
