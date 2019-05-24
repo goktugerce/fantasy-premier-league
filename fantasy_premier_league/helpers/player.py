@@ -8,6 +8,6 @@ def download_players(game):
     players = []
 
     for player in response:
-        players.append(Player.Player(player))
+        players.append(Player.Player(player, game=game))
     players.sort(key=lambda p: p.ownership, reverse=True)
     return players

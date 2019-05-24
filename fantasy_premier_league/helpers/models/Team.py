@@ -9,27 +9,34 @@ class Team(object):
             self.picks = []
 
             for pick in team['picks']:
-                self.picks.append(Picks(pick))
+                self.picks.append(Picks(pick, active_chip=self.active_chip))
         else:
             self.id = kwargs['id']
             self.active_chip = kwargs['active_chip']
             self.picks = []
 
             for pick in kwargs['picks']:
-                self.picks.append(Picks(pick=None, **pick))
+                self.picks.append(Picks(pick=None, active_chip=None, **pick))
 
 
 class Picks(object):
-    def __init__(self, pick, **kwargs):
+    def __init__(self, pick, active_chip, **kwargs):
         if pick:
             self.player_id = pick['element']
             self.position = pick['position']
             self.captain = pick['is_captain']
             self.vice_captain = pick['is_vice_captain']
+
+            if active_chip == 'Bench Boost':
+                self.benched = False
+            else:
+                self.benched = self.position > 11
+
             self.multiplier = pick['multiplier']
         else:
             self.player_id = kwargs['player_id']
             self.position = kwargs['position']
             self.captain = kwargs['captain']
             self.vice_captain = kwargs['vice_captain']
+            self.benched = kwargs['benched']
             self.multiplier = kwargs['multiplier']
