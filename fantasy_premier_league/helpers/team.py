@@ -30,3 +30,20 @@ def download_team_picks(game, team_id, gameweek):
     utilities.save_file(team_json, '{}/teams/{}/gw_{}.json'.format(game, team_id, gameweek))
 
     return team
+
+
+def read_team(game, team_id, gameweek):
+    """Read single team id from the local storage"""
+    team = utilities.read_file('{}/teams/{}/gw_{}.json'.format(game, team_id, gameweek))
+    return team
+
+
+def read_teams(game, team_ids, gameweek):
+    """Read/download multiple teams from the local storage"""
+    teams = []
+    for team_id in team_ids:
+        team = read_team(game, team_id, gameweek)
+        if team is None:
+            team = download_team_picks(game, team_id, gameweek)
+        teams.append(Team.Team(team=None, **team))
+    return teams

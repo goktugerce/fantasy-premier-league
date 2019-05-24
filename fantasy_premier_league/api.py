@@ -18,10 +18,13 @@ def get_league(league_id, max_players=50, game='FPL', overwrite=True):
     return team_ids[:max_players]
 
 
-def get_league_team_picks(team_ids, gameweek, game='FPL'):
+def get_league_team_picks(team_ids, gameweek, game='FPL', overwrite=False):
     """Get all teams' picks for given gameweek"""
-    teams = team.download_all_teams_picks(game, team_ids, gameweek)
-    return teams
+
+    if overwrite:
+        return team.download_all_teams_picks(game, team_ids, gameweek)
+
+    return team.read_teams(game, team_ids, gameweek)
 
 
 def get_team_picks(team_id, gameweek, game='FPL'):
