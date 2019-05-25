@@ -11,7 +11,7 @@ def get_captaincy_stats(teams, players, percentage=True):
         total_teams = len(teams)
         captaincy_by_name = helpers.convert_to_percentage(captaincy_by_name, total_teams)
 
-    return captaincy_by_name
+    return helpers.sort_by_value(captaincy_by_name)
 
 
 def count_by_ids(teams):

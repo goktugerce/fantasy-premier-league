@@ -5,7 +5,7 @@ class Team(object):
     def __init__(self, team, **kwargs):
         if team:
             self.id = team['entry_history']['entry']
-            self.active_chip = constants.chips[team['active_chip']] if team['active_chip'] else ''
+            self.active_chip = constants.chips[team['active_chip']] if team['active_chip'] else 'No Chip'
             self.picks = []
 
             for pick in team['picks']:
