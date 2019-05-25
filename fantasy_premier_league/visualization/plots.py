@@ -15,31 +15,31 @@ def prepare_data(dictionary, key_name, value_name, limit=10):
     return data[:limit]
 
 
-def draw_chip_usage(raw_data):
+def draw_chip_usage(raw_data, save_path=None):
     """Draw chip usage in vertical bar plot"""
     data = prepare_data(raw_data, 'name', 'usage', 10)
-    draw_bar_plot(data, 'name', 'usage', 'Chip', 'Usage %', False, True)
+    draw_bar_plot(data, 'name', 'usage', 'Chip', 'Usage %', False, True, save_path)
 
 
-def draw_captaincy_stats(raw_data):
+def draw_captaincy_stats(raw_data, save_path=None):
     """Draw captaincy stats in horizontal bar plot"""
     data = prepare_data(raw_data, 'name', 'captaincy', 10)
-    draw_bar_plot(data, 'captaincy', 'name', 'Captaincy %', 'Name', True, False)
+    draw_bar_plot(data, 'captaincy', 'name', 'Captaincy %', 'Name', True, False, save_path)
 
 
-def draw_ownership_stats(raw_data):
+def draw_ownership_stats(raw_data, save_path=None):
     """Draw ownership stats in horizontal bar plot"""
     data = prepare_data(raw_data, 'name', 'ownership', 10)
-    draw_bar_plot(data, 'ownership', 'name', 'Ownership %', 'Name', True, False)
+    draw_bar_plot(data, 'ownership', 'name', 'Ownership %', 'Name', True, False, save_path)
 
 
-def draw_effective_ownership_stats(raw_data):
+def draw_effective_ownership_stats(raw_data, save_path=None):
     """Draw effective ownership stats in horizontal bar plot"""
     data = prepare_data(raw_data, 'name', 'effective_ownership', 10)
-    draw_bar_plot(data, 'effective_ownership', 'name', 'Effective Ownership %', 'Name', True, False)
+    draw_bar_plot(data, 'effective_ownership', 'name', 'Effective Ownership %', 'Name', True, False, save_path)
 
 
-def draw_bar_plot(data, key_name, value_name, xlabel, ylabel, x_percentage=False, y_percentage=False):
+def draw_bar_plot(data, key_name, value_name, xlabel, ylabel, x_percentage=False, y_percentage=False, save_path=None):
     """Wrapper function for bar plots."""
     plt.figure(figsize=(20, 10))
 
@@ -54,4 +54,7 @@ def draw_bar_plot(data, key_name, value_name, xlabel, ylabel, x_percentage=False
         values = ax.get_xticks()
         ax.set_xticklabels(['{:,.2%}'.format(x) for x in values])
 
-    plt.show()
+    if save_path is None:
+        plt.show()
+    else:
+        plt.savefig(save_path)
