@@ -30,12 +30,7 @@ def prepare_template_team_data(template_team):
 
 
 def prepare_images(data, game='FPL'):
-    """
-    Download images from the URLs. If a player portrait does not exist, download the team photo
-    :param data:
-    :param game:
-    :return:
-    """
+    """Download images from the URLs. If a player portrait does not exist, download the team photo"""
     import requests
     from PIL import Image
     from io import BytesIO

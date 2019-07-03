@@ -15,5 +15,5 @@ class Player(object):
     def __str__(self):
         return 'Name: {}, Position: {}, Ownership: {}%'.format(self.name.encode('utf-8'), self.position, self.ownership)
 
-    def __unicode__(self):
-        return 'Name: {}, Position: {}, Ownership: {}%'.format(self.name.encode('utf-8'), self.position, self.ownership)
+    def __eq__(self, other):
+        return isinstance(other, self.__class__) and (self.id == other.id) and (self.code == other.code)

@@ -40,3 +40,9 @@ class Picks(object):
             self.vice_captain = kwargs['vice_captain']
             self.benched = kwargs['benched']
             self.multiplier = kwargs['multiplier']
+
+    def __eq__(self, other):
+        return isinstance(other, self.__class__) and (self.player_id == other.player_id) and (
+                    self.position == other.position) and (
+                       self.captain == other.captain) and (self.vice_captain == other.vice_captain) and (
+                       self.benched == other.benched)
