@@ -11,6 +11,7 @@ logging.getLogger().setLevel(logging.INFO)
 def download_all_teams_picks(game, team_ids, gameweek):
     """Download team picks one by one"""
     teams = []
+    print(team_ids)
 
     for counter, team_id in enumerate(team_ids):
         teams.append(download_team_picks(game, team_id, gameweek))
@@ -45,5 +46,7 @@ def read_teams(game, team_ids, gameweek):
         team = read_team(game, team_id, gameweek)
         if team is None:
             team = download_team_picks(game, team_id, gameweek)
-        teams.append(Team.Team(team=None, **team))
+            teams.append(team)
+        else:
+            teams.append(Team.Team(team=None, **team))
     return teams

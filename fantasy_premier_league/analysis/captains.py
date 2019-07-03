@@ -5,7 +5,7 @@ from . import helpers
 def get_captaincy_stats(teams, players, percentage=True):
     """Find captaincy stats for teams"""
     captaincy_by_id = count_by_ids(teams)
-    captaincy_by_name = helpers.map_names(captaincy_by_id, players)
+    captaincy_by_name = helpers.map_names(captaincy_by_id, players, with_team=True)
 
     if percentage:
         total_teams = len(teams)

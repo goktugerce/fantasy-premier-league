@@ -13,7 +13,8 @@ def create_template_team(teams, players, effective=False, percentage=True, with_
     for player_id, owners in ownership_by_ids.items():
         player = helpers.find_player_by_id(players, player_id)
         if max_players[player.position] > len(template[player.position]):
-            template[player.position].append('{} ({}%)'.format(player.name, round(owners * 100)))
+            player.ownership = round(owners * 100, 1)
+            template[player.position].append(player)
             total_added += 1
 
         if total_added == 15:
