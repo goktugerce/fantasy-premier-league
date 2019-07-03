@@ -2,6 +2,16 @@
 
 This project contains a package for collecting captaincy, chip usage, ownership, effective ownership, template team stats from [Fantasy Premier League](https://fantasy.premierleague.com), [Fantasy Allsvenskan](https://en.fantasy.allsvenskan.se), and [Fantasy Eliteserien](http://en.fantasy.eliteserien.no).
 
+## Installation
+
+To be able to run the package, you have to have Python 3+ installed on your computer.
+
+Check if you have python and pip available. If not [you have to install them](https://www.python.org/downloads/).
+
+After running the following command, you are ready to go:
+
+`pip install fantasy-premier-league-stats`
+
 ## Usage
 
 First, you have to choose one of the games: `FPL`, `ALLSVENSKAN` or `ELITESERIEN`.
