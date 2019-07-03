@@ -4,7 +4,6 @@ import matplotlib
 import seaborn as sns
 from .helpers import *
 
-matplotlib.rcParams['figure.dpi'] = 300
 sns.set(style='darkgrid', font_scale=1.5)
 sns.set_palette('cubehelix')
 

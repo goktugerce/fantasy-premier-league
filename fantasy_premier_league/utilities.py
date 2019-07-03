@@ -4,9 +4,8 @@ import os
 import requests
 import shutil
 import sys
+from .urls import *
 
-urls = configparser.ConfigParser()
-urls.read('fantasy_premier_league/urls.ini')
 user_dir = os.path.expanduser("~") + "/.fpl"
 
 
