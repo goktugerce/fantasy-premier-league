@@ -12,12 +12,15 @@ user_dir = os.path.expanduser("~") + "/.fpl"
 
 def get_url(target, game='FPL', **kwargs):
     target_string = str(urls['DEFAULT'][target]).format(**kwargs)
-    return '{}{}'.format(urls['DEFAULT'][game], target_string)
+    return '{}{}'.format(urls[game]['BASE_URL'], target_string)
 
 
 # noinspection PyBroadException
 def get_request(url):
-    response = requests.get(url)
+    try:
+        response = requests.get(url)
+    except requests.exceptions.SSLError:
+        response = requests.get(url, verify=False)
     try:
         return response.json()
     except Exception as e:
@@ -52,6 +55,14 @@ def read_file(file_path):
             return content
     except OSError:
         return None
+
+
+def get_portrait_url(player_id, game='FPL'):
+    return urls[game]['PORTRAIT_URL'.format(game)].format(player_id=player_id)
+
+
+def get_kit_url(team_id, game='FPL'):
+    return urls[game]['KIT_URL'.format(game)].format(team_id=team_id)
 
 
 # noinspection PyBroadException
