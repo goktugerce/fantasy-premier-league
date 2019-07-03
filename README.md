@@ -37,7 +37,7 @@ plots.draw_chip_usage(chip_usage)
 plots.draw_captaincy_stats(captaincy)
 plots.draw_ownership_stats(ownership_stats)
 plots.draw_effective_ownership_stats(effective_ownership_stats)
-plots.draw_template_team(template, 'ALLSVENSKAN')
+plots.draw_template_team(template, game)
 ```
 
 You can either see the plots while running your script or save them to a path of your choice.
