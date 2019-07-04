@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/goktugerce/fantasy-premier-league.svg?branch=master)](https://travis-ci.org/goktugerce/fantasy-premier-league)
 ## Fantasy Premier League variants Stats and Visualization
 
 This project contains a package for collecting captaincy, chip usage, ownership, effective ownership, template team stats from [Fantasy Premier League](https://fantasy.premierleague.com), [Fantasy Allsvenskan](https://en.fantasy.allsvenskan.se), and [Fantasy Eliteserien](http://en.fantasy.eliteserien.no).
