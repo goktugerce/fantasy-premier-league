@@ -12,7 +12,8 @@ chips = {
     '2capt': 'Two Captains',
     '3xc': 'Triple Captain',
     'bboost': 'Bench Boost',
-    'freehit': 'Free Hit'
+    'freehit': 'Free Hit',
+    "rich": "Rich Uncle"
 }
 
 teams = {
@@ -54,7 +55,10 @@ teams = {
         2364: {'short_name': 'SIF', 'name': 'Strømsgodset'},
         310: {'short_name': 'TIL', 'name': 'Tromsø'},
         311: {'short_name': 'VIF', 'name': 'Vålerenga'},
-        3199: {'short_name': 'MJO', 'name': 'Mjøndalen'}
+        3199: {'short_name': 'MJO', 'name': 'Mjøndalen'},
+        2745: {'short_name': 'AAFK', 'name': 'Aalesunds FK'},
+        1098: {'short_name': 'IKS', 'name': 'IK Start'},
+        3334: {'short_name': 'SAN', 'name': 'Sandefjord'}
     },
     'ALLSVENSKAN': {
         217: {'short_name': 'HIF', 'name': 'Helsingborgs IF'},
@@ -72,6 +76,8 @@ teams = {
         2594: {'short_name': 'KFF', 'name': 'Kalmar FF'},
         5576: {'short_name': 'ÖFK', 'name': 'Östersunds FK'},
         2598: {'short_name': 'SUN', 'name': 'GIF Sundsvall'},
-        195: {'short_name': 'AIK', 'name': 'AIK'}
+        195: {'short_name': 'AIK', 'name': 'AIK'},
+        6810: {'short_name': 'VAR', 'name': 'Varbergs BoIS'},
+        2360: {'short_name': 'MAIF', 'name': 'Mjällby AIF'}
     }
 }
