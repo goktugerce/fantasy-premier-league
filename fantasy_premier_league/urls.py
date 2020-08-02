@@ -3,8 +3,9 @@ urls = {
         'BOOTSTRAP_STATIC_URL': 'bootstrap-static',
         'PLAYERS_METADATA_URL': 'elements',
         'ELEMENT_SUMMARY_URL': 'element-summary/',
-        'LEAGUE_CLASSIC_STANDINGS_URL': 'leagues-classic-standings/{league_id}?phase=1&le-page=1&ls-page={page}',
+        'LEAGUE_CLASSIC_STANDINGS_URL': 'leagues-classic/{league_id}/standings/?page_new_entries=1&page_standings={page}&phase=1',
         'TEAM_ENTRY_URL': 'entry/{team_id}/event/{gameweek}/picks',
+        'TEAM_HISTORY_URL': 'entry/{team_id}/history'
     },
     'FPL': {
         'BASE_URL': 'https://fantasy.premierleague.com/drf/',
@@ -12,13 +13,13 @@ urls = {
         'PORTRAIT_URL': 'https://platform-static-files.s3.amazonaws.com/premierleague/photos/players/110x140/{player_id}.png'
     },
     'ELITESERIEN': {
-        'BASE_URL': 'https://fantasy.eliteserien.no/drf/',
-        'KIT_URL': 'https://en.fantasy.eliteserien.no/static/libsass/eliteserienf/dist/img/shirts/shirt_{team_id}-300.png',
+        'BASE_URL': 'https://fantasy.eliteserien.no/api/',
+        'KIT_URL': 'https://en.fantasy.eliteserien.no/dist/img/shirts/standard/shirt_{team_id}-110.png',
         'PORTRAIT_URL': 'https://beta.toppfotball.no/Fantasy/players/{player_id}.png'
     },
     'ALLSVENSKAN': {
-        'BASE_URL': 'https://en.fantasy.allsvenskan.se/drf/',
-        'KIT_URL': 'https://en.fantasy.allsvenskan.se/static/libsass/allsvenskanf/dist/img/shirts/shirt_{team_id}-300.png',
+        'BASE_URL': 'https://en.fantasy.allsvenskan.se/api/',
+        'KIT_URL': 'https://en.fantasy.allsvenskan.se/dist/img/shirts/standard/shirt_{team_id}-110.png',
         'PORTRAIT_URL': 'https://d1y1xe7lamdzn7.cloudfront.net/{player_id}.png'
     }
 }
