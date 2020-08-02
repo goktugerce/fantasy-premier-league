@@ -4,9 +4,10 @@ from . import constants
 class Team(object):
     def __init__(self, team, **kwargs):
         if team:
-            self.id = team['entry_history']['entry']
+            self.id = kwargs['id']
             self.active_chip = constants.chips[team['active_chip']] if team['active_chip'] else 'No Chip'
             self.picks = []
+            self.last_round_points = team['entry_history']['points']
 
             for pick in team['picks']:
                 self.picks.append(Picks(pick, active_chip=self.active_chip))
@@ -46,3 +47,17 @@ class Picks(object):
                     self.position == other.position) and (
                        self.captain == other.captain) and (self.vice_captain == other.vice_captain) and (
                        self.benched == other.benched)
+
+
+class History(object):
+    def __init__(self, history, **kwargs):
+        if history:
+            self.id = kwargs['id']
+            self.current_season = history['current']
+            self.past = history['past']
+            self.chips = history['chips']
+        else:
+            self.id = kwargs['id']
+            self.current_season = kwargs['current_season']
+            self.past = kwargs['past']
+            self.chips = kwargs.get('chips', [])
